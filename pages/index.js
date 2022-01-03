@@ -1,8 +1,11 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import {useStore} from 'effector-react'
+import {$title} from '../models/post'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
+  const title = useStore($title)
   return (
     <div className={styles.container}>
       <Head>
@@ -13,7 +16,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          {title}
         </h1>
 
         <p className={styles.description}>
